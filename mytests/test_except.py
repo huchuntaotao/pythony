@@ -1,13 +1,17 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-s  = '123'
 try:
-    int(s)
-    #print 9/0
+    d = {'a': 1, 'b': 2, 'c': 3}
+    print 1 / 0
+    print d['d']
+except ZeroDivisionError, e:
+    print "ZeroDivisionError...!"
+except KeyError, e:
+    print "KeyError...!"
 except Exception, e:
-    print(e)
+    print "Exception...!"
 else:
-    print 'All is Ok.'
+    print "没有发生异常...!"
 finally:
-    print 'forever.'
+    print "无论怎样都会执行...!"

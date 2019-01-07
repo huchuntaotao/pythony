@@ -24,6 +24,8 @@ class Config(object):
     
     MAIL_MAX_EMAILS = None
     MAIL_ASCII_ATTACHMENTS = False
+    
+    PYTHONY_ADMIN = env('PYTHONY_ADMIN','Pythony Admin<896456601@qq.com>')
 
 
     @staticmethod

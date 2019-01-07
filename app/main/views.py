@@ -15,17 +15,17 @@ def index():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.name.data).first()
         if user is None:
-            user = user(username=form.name.data)
+            user = User(username=form.name.data)
             db.session.add(user)
             db.session.commit()
-            session['know'] = False
+            session['known'] = False
             if current_app.config['PYTHONY_ADMIN']:
-                send_mail(current_app.config['PYTHONY_ADMIN'], 'NEW_USER', '/mail/new_user', user=user)
+                send_email(current_app.config['PYTHONY_ADMIN'], 'NEW_USER', '/mail/new_user', user=user)
         else:
             session['known'] = True
         session['name'] = form.name.data
         return redirect(url_for('.index'))
     return render_template('index.html', form=form, 
                            name = session.get('name'),
-                           know=session.get('know', False), 
+                           known=session.get('known', False), 
                            current_time=datetime.utcnow())

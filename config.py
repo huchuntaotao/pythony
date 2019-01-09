@@ -26,7 +26,7 @@ class Config(object):
     MAIL_ASCII_ATTACHMENTS = False
     
     PYTHONY_ADMIN = env('PYTHONY_ADMIN','Pythony Admin<896456601@qq.com>')
-
+    FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN', 'Flasky Admin<896456601@qq.com>')
 
     @staticmethod
     def init_app(app): #预留方法???
